@@ -31,19 +31,21 @@ function getin() {
 
         users.forEach((user) => { 
             console.log(user.email)
-            console.log(email.value)
+            console.log(user)
 
-            if (user.email == email.value && user.password == password.value ) {
+             if (email.value == user.email  && password.value == user.password ) {
+                console.log("son iguales");
                 sessionStorage.setItem('nombre', user.name)
                 let nombre = sessionStorage.getItem('nombre')
-                 location.href = 'home.html' 
+                /* location.href = 'home.html'  */
             } else {
-                email.classList.remove('is-valid', 'is-invalid');
-                password.classList.remove('is-valid', 'is-invalid');
+                console.log("NO SON IGUALES");
+                email.classList.add('is-valid', 'is-invalid');
+                password.classList.add('is-valid', 'is-invalid');
                 document.getElementById('msj').innerText = 'CREDENCIALES INCORRECTOS'
-                document.getElementById('email').value = ''
-                document.getElementById('password').value = ''
-            }
+/*                 document.getElementById('email').value = ''
+                document.getElementById('password').value = '' */
+            } 
         })
         
     } else if (email.value === '' && password.value !== '') {

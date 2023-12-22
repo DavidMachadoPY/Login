@@ -6,17 +6,20 @@
 
 let users =  [
     {
-        name : 'david',
+        name : 'Salome',
         email : 'd@e.f',
-        password : 'botero'
+        password: '123',
+        gender: 'femenino',
+        img:`['img/img1.jpg','img/img2.jpg','img/img3.jpg','img/img4.jpg','img/img5.jpg','img/img6.jpg','img/img7.jpg','img/img8.jpg']`
     },
     {
         name : 'Salomon',
         email : 'a@b.c',
-        password : 'botero'
+        password: '123',
+        gender: 'masculino',
+        img:`['img/img9.jpg','img/img10.jpg','img/img11.jpg','img/img12.jpg','img/img13.jpg','img/img14.jpg']`
     }
 ]
-
 
 function getin() {
     let email = document.getElementById('email');
@@ -24,27 +27,20 @@ function getin() {
     
     email.classList.remove('is-valid', 'is-invalid');
     password.classList.remove('is-valid', 'is-invalid');
-    
     if (email.value !== '' && password.value !== '' ) {
         email.classList.add('is-valid');
         password.classList.add('is-valid');
 
         users.forEach((user) => { 
-            console.log(user.email)
-            console.log(user)
 
-             if (email.value == user.email  && password.value == user.password ) {
-                console.log("son iguales");
+            if (email.value == user.email  && password.value == user.password ) {
                 sessionStorage.setItem('nombre', user.name)
-                let nombre = sessionStorage.getItem('nombre')
-                /* location.href = 'home.html'  */
+                sessionStorage.setItem('genero', user.gender)
+                localStorage.setItem('imgF', JSON.stringify(users[0].img))
+                localStorage.setItem('imgM', JSON.stringify(users[1].img))
+                location.href = 'home.html';
             } else {
                 console.log("NO SON IGUALES");
-                email.classList.add('is-valid', 'is-invalid');
-                password.classList.add('is-valid', 'is-invalid');
-                document.getElementById('msj').innerText = 'CREDENCIALES INCORRECTOS'
-/*                 document.getElementById('email').value = ''
-                document.getElementById('password').value = '' */
             } 
         })
         
@@ -58,9 +54,4 @@ function getin() {
         email.classList.add('is-invalid');
         password.classList.add('is-invalid');
     }
-
-    
-
-
-
 }

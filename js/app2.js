@@ -2,18 +2,32 @@ let nombre = sessionStorage.getItem('nombre')
 console.log(nombre);
 document.getElementById('name').innerText = nombre
 
+
 if (nombre == 'Salome') {
+
     let divImg = document.getElementById('contentImg');
-    let img = document.createElement('img')
-    let imgF = localStorage.getItem('imgF')
-    let imgM = localStorage.getItem('imgM')
-    console.log(imgF[0])
-    console.log(imgM[0])
-   
-    divImg.appendChild(img)
+    casa = users[0].img
+    console.log(casa)
+      casa.forEach(i => {
+        let img = document.createElement('img')
+        img.setAttribute('src', i)
+        divImg.appendChild(img)     
+    });
+  
+} else if (nombre == 'Salomon'){
+    let divImg = document.getElementById('contentImg');
+    casa = users[1].img
+    console.log(casa)
+      casa.forEach(i => {
+        let img = document.createElement('img')
+        img.setAttribute('src', i)
+        divImg.appendChild(img)     
+    });
 }
 
 function getout() {
     window.location.href = 'index.html'
 }
 
+
+function getUser()

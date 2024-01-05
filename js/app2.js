@@ -26,8 +26,7 @@ if (nombre == 'Salome') {
 }
 
 function getout() {
-    window.location.href = '../index.html'
+    console.log('HOLAAA')
+    window.location.href = './index.html'
 }
 
-
-function getUser()
